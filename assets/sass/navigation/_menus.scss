@@ -235,7 +235,7 @@ button.menu-toggle {
 			@include burger-to-cross;
 			
 			&:before, &:after {
-				background-color: #d2d2d2;
+				background-color: #444;
 			}
 		}
 	}
@@ -264,9 +264,9 @@ nav.mobilemenu {
   overflow-y: auto;
   z-index: 100001;
   @include transform(translateX(100%));
-  @include transition(transform .55s cubic-bezier(0.785, 0.135, 0.15, 0.86));
-  @media screen and (min-width: $tabwidth) {
-  	// display: none;
+  /*@include transition(transform .55s cubic-bezier(0.785, 0.135, 0.15, 0.86));*/
+  @media screen and (max-width: 767px) {
+  	top: 100px;
   }
   
   &.show {

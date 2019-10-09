@@ -65,7 +65,7 @@ jQuery(document).ready(function ($) {
 	*
 	------------------------------------*/
 	$('.flexslider').flexslider({
-		animation: "fade",
+		animation: "slide",
 	}); // end register flexslider
 	
 	/*
