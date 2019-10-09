@@ -172,7 +172,6 @@ jQuery(document).ready(function($ ) {
 
   		// add the 'active' class to the appropriate tab control
   		$('li[data-tab='+urlHash+']').addClass('active');
-  		// console.log(urlHash);
   		
   		// add the 'active' class to the appropriate tab
   		$('#' + urlHash + '-container').addClass('active');
@@ -195,7 +194,7 @@ jQuery(document).ready(function($ ) {
 
   	// if the tab links are clicked from the main menu
   	$('body').on('click', '#menu-main-menu li a, #menu-main-menu-1 li a', function(e) {
-  		console.log('clicked');
+  		// console.log('clicked');
 
   		/*****************************************************
   		* Important! must hide the static layer and then fade it back in
@@ -222,13 +221,12 @@ jQuery(document).ready(function($ ) {
 		    // Index (home) page
 		    
 		    var parent_has_class = $(this).parent().hasClass('tab-links');
-		    console.log('has class lala', parent_has_class);
+		    // console.log('has class ', parent_has_class);
 		    
 		    if(parent_has_class) {
 		    	e.preventDefault();
-		    	// var urlHash = $(this).attr("href").substring(2);
-		    	var urlHash = $(this).attr("href");
-		    	console.log(urlHash);
+		    	var urlHash = $(this).attr("href").substring(2);
+		    
 		    	handleHash(urlHash);
 		  		
 		    }
@@ -238,7 +236,7 @@ jQuery(document).ready(function($ ) {
 		   
 		} else {
 		    // Other page
-		    console.log(window.location.pathname);
+		    // console.log(window.location.pathname);
 		}
   		
   	});
