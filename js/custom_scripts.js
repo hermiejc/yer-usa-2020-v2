@@ -171,7 +171,7 @@ jQuery(document).ready(function($ ) {
   		$('.tabs-nav-controls li, .home-page-content-containers div').removeClass('active');
 
   		// add the 'active' class to the appropriate tab control
-  		$('li[data-tab='+urlHash+']').addClass('active');
+  		$('li[data-tab='+ urlHash +']').addClass('active');
   		// console.log(urlHash);
   		
   		// add the 'active' class to the appropriate tab
@@ -193,9 +193,11 @@ jQuery(document).ready(function($ ) {
   		handleHash(urlHash);
   	}
 
+  	
+
   	// if the tab links are clicked from the main menu
   	$('body').on('click', '#menu-main-menu li a, #menu-main-menu-1 li a', function(e) {
-  		console.log('clicked');
+  		//console.log('clicked');
 
   		/*****************************************************
   		* Important! must hide the static layer and then fade it back in
@@ -222,26 +224,33 @@ jQuery(document).ready(function($ ) {
 		    // Index (home) page
 		    
 		    var parent_has_class = $(this).parent().hasClass('tab-links');
-		    console.log('has class lala', parent_has_class);
+		    //console.log('has class lala', parent_has_class);
 		    
 		    if(parent_has_class) {
+
 		    	e.preventDefault();
-		    	// var urlHash = $(this).attr("href").substring(2);
-		    	var urlHash = $(this).attr("href");
-		    	console.log(urlHash);
-		    	handleHash(urlHash);
-		  		
+                var urlHash = $(this).attr("href").substring(2);
+            
+                handleHash(urlHash);
+
+                $('.burger').removeClass('clicked');
+				$('.overlay').removeClass('show');   	
+		    	$('.mobilemenu').removeClass('show'); 
+
 		    }
 
 		    // scroll user back to top of page
-		    $("html, body").animate({ scrollTop: 0 }, 500);
-		   
-		} else {
-		    // Other page
-		    console.log(window.location.pathname);
-		}
+		    $("html, body").animate({ scrollTop: 0 }, 500);		   
+		}  else {
+            // Other page
+            // console.log(window.location.pathname);
+        }
+		
   		
   	});
+
+  	
+
 
   	// clear the hash from the URL
   	function removeHash() { 
