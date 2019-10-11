@@ -185,6 +185,8 @@ jQuery(document).ready(function($ ) {
   		
   	}
 
+    
+
   	// get the URL hash
   	var urlHash = window.location.hash.substring(1);
 
@@ -194,20 +196,33 @@ jQuery(document).ready(function($ ) {
   	}
 
   	
-    $('body').on('click', '.menu-item-type-custom.menu-item-object-custom a', function(){
-        if(! $(this).closest('li').hasClass('tab-links')){
-            var urlHash = $(this).attr("href").substring(1);;
+    $('body').on('click', '.menu-item-type-custom.menu-item-object-custom a', function(e){
 
-             handleHash(urlHash);
+        e.preventDefault();
 
-            $('.burger').removeClass('clicked');
-            $('.overlay').removeClass('show');      
-            $('.mobilemenu').removeClass('show'); 
+        if ( window.location.pathname == '/' ){
 
-            $("html, body").animate({ scrollTop: 0 }, 500); 
+            if(! $(this).closest('li').hasClass('tab-links')){
+                
+                var urlHash = $(this).attr("href").substring(2);
 
-            //console.log('Secondary Menu clicked: ' + urlHash);
+                 handleHash(urlHash);              
+
+                window.location.href.split('#')[0];
+
+                $("html, body").animate({ scrollTop: 0 }, 1000); 
+
+            }
+
+        } else {
+
+            var url = $(this).attr("href");
+            //console.log(url);
+            window.location.href = url;           
+
         }
+
+        
         
     });
 
