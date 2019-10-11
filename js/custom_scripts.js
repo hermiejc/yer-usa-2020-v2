@@ -206,7 +206,7 @@ jQuery(document).ready(function($ ) {
 
             $("html, body").animate({ scrollTop: 0 }, 500); 
 
-            console.log('Secondary Menu clicked: ' + urlHash);
+            //console.log('Secondary Menu clicked: ' + urlHash);
         }
         
     });
