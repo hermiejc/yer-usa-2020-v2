@@ -194,6 +194,22 @@ jQuery(document).ready(function($ ) {
   	}
 
   	
+    $('body').on('click', '.menu-item-type-custom.menu-item-object-custom a', function(){
+        if(! $(this).closest('li').hasClass('tab-links')){
+            var urlHash = $(this).attr("href").substring(1);;
+
+             handleHash(urlHash);
+
+            $('.burger').removeClass('clicked');
+            $('.overlay').removeClass('show');      
+            $('.mobilemenu').removeClass('show'); 
+
+            $("html, body").animate({ scrollTop: 0 }, 500); 
+
+            console.log('Secondary Menu clicked: ' + urlHash);
+        }
+        
+    });
 
   	// if the tab links are clicked from the main menu
   	$('body').on('click', '#menu-main-menu li a, #menu-main-menu-1 li a', function(e) {
